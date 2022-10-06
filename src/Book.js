@@ -10,19 +10,37 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var _User_name, _User_rating;
+var _Book_name, _Book_rating;
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.User = void 0;
-class User {
+exports.Book = void 0;
+class Book {
     constructor(name, rating) {
-        _User_name.set(this, void 0);
-        _User_rating.set(this, void 0);
-        __classPrivateFieldSet(this, _User_name, name, "f");
-        __classPrivateFieldSet(this, _User_rating, rating, "f");
+        _Book_name.set(this, void 0);
+        _Book_rating.set(this, void 0);
+        __classPrivateFieldSet(this, _Book_name, name, "f");
+        __classPrivateFieldSet(this, _Book_rating, rating, "f");
     }
-    kiir() {
-        console.log(__classPrivateFieldGet(this, _User_name, "f"), __classPrivateFieldGet(this, _User_rating, "f"));
+    Book(name, rating) {
+        __classPrivateFieldSet(this, _Book_name, name, "f");
+        __classPrivateFieldSet(this, _Book_rating, rating, "f");
+    }
+    set setName(name) {
+        __classPrivateFieldSet(this, _Book_name, name, "f");
+    }
+    get getRating() {
+        return __classPrivateFieldGet(this, _Book_rating, "f");
+    }
+    set setRating(rating) {
+        if (rating > 10 || rating < 1) {
+            throw new Error("Inavalid Number!");
+        }
+        else {
+            __classPrivateFieldSet(this, _Book_rating, rating, "f");
+        }
+    }
+    toString() {
+        return "Könyv címe: " + __classPrivateFieldGet(this, _Book_name, "f") + " Értékelése: " + __classPrivateFieldGet(this, _Book_rating, "f");
     }
 }
-exports.User = User;
-_User_name = new WeakMap(), _User_rating = new WeakMap();
+exports.Book = Book;
+_Book_name = new WeakMap(), _Book_rating = new WeakMap();
