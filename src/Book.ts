@@ -26,4 +26,4 @@ export class Book {
     public toString() :string {
         return "Könyv címe: "+this.#name+" Értékelése: "+this.#rating;
     }
-}
+} 
